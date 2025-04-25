@@ -14,11 +14,11 @@ public class GatewayConfig {
 
                 .route(r -> r.path("/api/location/**")
                         .filters(f -> f.rewritePath("/api/location/(?<segment>.*)", "/location/${segment}"))
-                        .uri("lb://LOCATION-SERVICE"))
+                        .uri("lb://LOCATION-AND-POI-SERVICE"))
 
                 .route(r -> r.path("/api/poi/**")
                         .filters(f -> f.rewritePath("/api/poi/(?<segment>.*)", "/poi/${segment}"))
-                        .uri("lb://POI-SERVICE"))
+                        .uri("lb://LOCATION-AND-POI-SERVICE"))
 
                 .build();
     }
