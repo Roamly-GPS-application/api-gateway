@@ -34,3 +34,6 @@ build/
 
 eureka.properties
 cognito.properties
+.env
+application-docker.properties
+
