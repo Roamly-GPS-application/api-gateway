@@ -1,0 +1,23 @@
+#!/bin/bash
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+RESOURCES_FOLDER="${SCRIPT_DIR}/src/main/resources"
+
+EUREKA_PROPERTIES_FILE="${RESOURCES_FOLDER}/eureka.properties"
+
+if [ "$#" ne 3 ]; then
+  echo "Usage: $0 <EUREKA_USERNAME> <EUREKA_PASS> <INTERNAL_TOKEN>"
+  exit 1
+fi
+
+EUREKA_USERNAME=$1
+EUREKA_PASS=$2
+INTERNAL_TOKEN=$3
+
+cat <<EOF > $EUREKA_PROPERTIES_FILE
+EUREKA_USERNAME=$EUREKA_USERNAME
+EUREKA_PASS=$EUREKA_PASS
+INTERNAL_TOKEN=$INTERNAL_TOKEN
+EOF
+
+echo " $EUREKA_PROPERTIES_FILE created successfully "

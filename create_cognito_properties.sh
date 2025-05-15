@@ -1,0 +1,21 @@
+#!/bin/bash
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+RESOURCES_FOLDER="${SCRIPT_DIR}/src/main/resources"
+
+COGNITO_PROPERTIES_FILE="${RESOURCES_FOLDER}/eureka.properties"
+
+if [ "$#" ne 2 ]; then
+  echo "Usage: $0 <COGNITO_REGION> <COGNITO_USER_POOL_ID>"
+  exit 1
+fi
+
+COGNITO_REGION=$1
+COGNITO_USER_POOL_ID=$2
+
+cat <<EOF > $COGNITO_PROPERTIES_FILE
+COGNITO_REGION=$COGNITO_REGION
+COGNITO_USER_POOL_ID=$COGNITO_USER_POOL_ID
+EOF
+
+echo " $COGNITO_PROPERTIES_FILE created successfully "
