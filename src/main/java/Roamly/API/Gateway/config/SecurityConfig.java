@@ -22,7 +22,6 @@ public class SecurityConfig {
     private static final List<String> ALLOWED_METHODS = List.of("GET", "POST", "PUT", "DELETE", "OPTIONS");
     private static final List<String> ALLOWED_ORIGINS = List.of("http://localhost:5173", "https://100.64.195.48");
 
-
     @Bean
     public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) {
 
