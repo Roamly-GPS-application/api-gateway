@@ -35,3 +35,6 @@ jobs:
 
       - name: Push docker image
         run: docker push ghcr.io/roamly-gps-application/api-gateway:latest
+
+      - name: Trigger release pipeline
+        run: gh workflow run "deploy-to-test-server.yml" -R roamly-gps-application/roamly-release -f deploy_target=test --ref main
