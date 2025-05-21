@@ -38,3 +38,5 @@ jobs:
 
       - name: Trigger release pipeline
         run: gh workflow run "deploy-to-test-server.yml" -R roamly-gps-application/roamly-release -f deploy_target=test --ref main
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
