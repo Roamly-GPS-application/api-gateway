@@ -19,7 +19,7 @@ public class SecurityConfig {
 
     private static final List<String> ALLOWED_HEADERS = List.of("Authorization", "Content-type");
     private static final List<String> ALLOWED_METHODS = List.of("GET", "POST", "PUT", "DELETE", "OPTIONS");
-    private static final List<String> ALLOWED_ORIGINS = List.of("http://localhost:5173", "https://100.64.195.48", "http://100.64.195.48");
+    private static final List<String> ALLOWED_ORIGINS = List.of("http://localhost:5173", "https://100.64.195.48", "http://100.64.195.48", "https://174.138.105.226.nip.io");
 
     @Bean
     public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) {
