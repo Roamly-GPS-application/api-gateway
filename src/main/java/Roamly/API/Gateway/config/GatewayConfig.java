@@ -23,19 +23,19 @@ public class GatewayConfig {
                         .filters(f -> f
                                 .addRequestHeader(tokenHeaderName, token)
                                 .rewritePath("/api/location/(?<segment>.*)", "/location/${segment}"))
-                        .uri("lb://LOCATION-AND-POI-SERVICE"))
+                        .uri("http://location-and-poi-service.roamly-backend.svc.cluster.local"))
 
                 .route(r -> r.path("/api/poi/**")
                         .filters(f -> f
                                 .addRequestHeader(tokenHeaderName, token)
                                 .rewritePath("/api/poi/(?<segment>.*)", "/poi/${segment}"))
-                        .uri("lb://LOCATION-AND-POI-SERVICE"))
+                        .uri("http://location-and-poi-service.roamly-backend.svc.cluster.local"))
 
                 .route(r -> r.path("/api/group/**")
                         .filters(f -> f
                                 .addRequestHeader(tokenHeaderName, token)
                                 .rewritePath("/api/group/(?<segment>.*)", "/group/${segment}"))
-                                .uri("lb://TRAVEL-GROUP-SERVICE"))
+                                .uri("http://travel-group-service.roamly-backend.svc.cluster.local"))
 
                 .build();
     }
