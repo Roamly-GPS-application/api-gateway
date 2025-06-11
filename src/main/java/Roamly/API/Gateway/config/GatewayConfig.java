@@ -23,7 +23,7 @@ public class GatewayConfig {
                         .filters(f -> f
                                 .addRequestHeader(tokenHeaderName, token)
                                 .rewritePath("/api/location/(?<segment>.*)", "/location/${segment}"))
-                        .uri("http://location-and-poi-service.roamly-backend.svc.cluster.local"))
+                        .uri("http://location-and-poi-service.roamly-backend.svc.cluster.local:8001"))
 
                 .route(r -> r.path("/api/poi/**")
                         .filters(f -> f
