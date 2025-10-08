@@ -44,7 +44,40 @@ For local development or testing, switch to the **`local-setup`** branch:
 ```bash
  git checkout local-setup
  ```
+---
 
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```
+$ git clone https://github.com/Roamly-GPS-application/api-gateway.git
+$ cd api-gateway
+```
+
+### 2. Set up environment variables
+
+**Step 1.** Configure the default URL for connecting the Gateway to the Eureka Service Registry in **`application.properties`** by setting the default zone for your Eureka server:
+
+```
+eureka.client.service-url.defaultZone=http://${EUREKA_USERNAME}:${EUREKA_PASSWORD}@localhost:8761/eureka
+```
+
+**Step 2.** Create an **`eureka.properties`** file
+Inside `src/main/resources`, create a file named eureka.properties and add your Eureka credentials, for example:
+
+```properties
+   EUREKA_USERNAME=admin
+   EUREKA_PASSWORD=admin123
+```
+
+### 3. Clone the repo for **Eureka Service Registry Server** microservice
+
+Since the API Gateway relies on the Eureka Service Registry for service discovery, clone and run that microservice locally:
+
+```
+$ git clone https://github.com/Roamly-GPS-application/location-and-poi-service.git
+```
 ---
 
 ## 🛠️ Related Repositories
